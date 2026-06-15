@@ -147,6 +147,7 @@ export default function App() {
       <div className="bubble b3"></div>
       <div className="bubble b4"></div>
       <div className="bubble b5"></div>
+      <div className="bubble b6"></div>
 
       <div className="contenedor">
 
@@ -227,3 +228,5 @@ export default function App() {
     </>
   );
 }
+
+//
