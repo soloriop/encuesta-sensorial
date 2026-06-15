@@ -41,10 +41,10 @@ const preguntas = [
   {id: 24, categoria: "Propiocepcion", texto: "¿A veces tienes dificultad para saber en qué posición se encuentra tu cuerpo sin observarlo?"},
 
   //Vestivular
-  {id: 25, categoria: "Vestivular", texto:"¿Te mareas fácilmente al viajar en automóvil o transporte público?"},
-  {id: 26, categoria: "Vestivular", texto:"¿Tienes dificultades para mantener el equilibrio en algunas situaciones?"},
-  {id: 27, categoria: "Vestivular", texto:"¿Los movimientos rápidos de la cabeza te provocan incomodidad o mareo?"},
-  {id: 28, categoria: "Vestivular", texto:"¿Te sientes inseguro al subir escaleras o caminar sobre superficies irregulares?"},
+  {id: 25, categoria: "Vestibular", texto:"¿Te mareas fácilmente al viajar en automóvil o transporte público?"},
+  {id: 26, categoria: "Vestibular", texto:"¿Tienes dificultades para mantener el equilibrio en algunas situaciones?"},
+  {id: 27, categoria: "Vestibular", texto:"¿Los movimientos rápidos de la cabeza te provocan incomodidad o mareo?"},
+  {id: 28, categoria: "Vestibular", texto:"¿Te sientes inseguro al subir escaleras o caminar sobre superficies irregulares?"},
 
 ];
 
@@ -146,6 +146,7 @@ export default function App() {
       <div className="bubble b2"></div>
       <div className="bubble b3"></div>
       <div className="bubble b4"></div>
+      <div className="bubble b5"></div>
 
       <div className="contenedor">
 

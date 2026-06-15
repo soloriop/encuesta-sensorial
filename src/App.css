@@ -16,7 +16,7 @@ body {
 
 .contenedor {
   width: 850px;
-  max-width: 90%;
+  max-width: 100%;
   margin: 40px auto;
   padding: 45px;
 
@@ -104,7 +104,6 @@ p {
 
 .seleccionado {
   background: rgba(0,212,255,.15) !important;
-  border: 2px solid #00d4ff !important;
 }
 
 /* BOTONES */
@@ -164,41 +163,6 @@ p {
     0 0 50px rgba(0,212,255,.4);
 
   background: rgba(255,255,255,.05);
-}
-
-/* TARJETAS */
-
-.tarjetas {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
-
-  gap: 20px;
-
-  margin-top: 30px;
-}
-
-.tarjeta {
-
-  background: rgba(255,255,255,.05);
-
-  border: 1px solid rgba(255,255,255,.08);
-
-  border-radius: 20px;
-
-  padding: 20px;
-
-  transition: .3s;
-}
-
-.tarjeta:hover {
-  transform: translateY(-6px);
-}
-
-.tarjeta h4 {
-  margin-bottom: 20px;
 }
 
 .puntajeCategoria {
@@ -267,6 +231,19 @@ p {
   background: #ff6600;
   animation: bubble4 25s infinite alternate ease-in-out;
 }
+.b5 {
+  width: 300px;
+  height: 300px;
+  background: #CF27F5;
+  animation: bubble4 25s infinite alternate ease-in-out;
+}
+.b6 {
+  width: 300px;
+  height: 300px;
+  background: #FFFFFF;
+  animation: bubble3 20s infinite alternate ease-in-out;
+}
+
 
 @keyframes bubble1 {
 
@@ -339,6 +316,43 @@ p {
     right: 70%;
   }
 }
+
+@keyframes bubble5 {
+  
+  0% {
+    bottom: 0%;
+    right: 0%;
+  }
+
+  50% {
+    bottom: 64%;
+    right: 55%;
+  }
+
+  100% {
+    bottom: 50%;
+    right: 70%;
+  }
+}
+
+@keyframes bubble6 {
+  
+  0% {
+    bottom: 0%;
+    right: 0%;
+  }
+
+  50% {
+    bottom: 80%;
+    right: 60%;
+  }
+
+  100% {
+    bottom: 20%;
+    right: 70%;
+  }
+}
+  
 
 /* RESPONSIVE */
 
