@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./App.css";
@@ -161,33 +162,44 @@ const maximoCategoria = Object.entries (categorias).sort((a, b) => b[1] - a[1])[
     }
   ]
 };
-
 const options = {
   responsive: true,
+  maintainAspectRatio: false,
+
   scales: {
     r: {
       beginAtZero: true,
+
       ticks: {
         display: false
       },
+
       grid: {
-        color: "rgba(255,255,255,0.15)"
+        color: "rgba(255,255,255,.15)"
       },
+
       angleLines: {
-        color: "rgba(255,255,255,0.15)"
+        color: "rgba(255,255,255,.15)"
       },
+
       pointLabels: {
-        color: "#ffffff",
+        color: "#fff",
         font: {
-          size: 14
+          size: 12
         }
       }
     }
   },
+
   plugins: {
+    position: "top",
     legend: {
+      display: false,
       labels: {
-        color: "#ffffff"
+        color: "#fff",
+        font: {
+          size: 12,
+        }
       }
     }
   }
@@ -203,9 +215,10 @@ const options = {
 
       <h3>Resultados por categoría</h3>
 
-      <div style={{ width: "500px", margin: "30px auto" }}>
+      <div className="grafica">
   <Radar data={data} options={options} />
 </div>
+
 <h2>
   La categoría con mayor sensibilidad fue <span className="destacado">
     {maximoCategoria[0]}

@@ -8,16 +8,18 @@ body {
   background: #050505;
   color: white;
   font-family: "Segoe UI", sans-serif;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* CONTENEDOR PRINCIPAL */
 
 .contenedor {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding:  clamp(20px, 5vw, 60px);
+  overflow-y: auto;
 
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(25px);
@@ -175,7 +177,7 @@ p {
 .bubble {
   position: fixed;
   border-radius: 50%;
-  filter: blur(200px);
+  filter: blur(80px);
   opacity: .90;
   z-index: 0;
 }
@@ -329,9 +331,20 @@ p {
   }
 }
   
+  .botones {
+    flex-direction: column;
+    gap: 15px;
+  }
+.grafica {
+  width: min(100%, 500px);
+  height: clamp(250px, 50vw, 450px);
 
-/* RESPONSIVE */
+  margin: 0 auto;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 768px) {
 
   .botones {
@@ -339,4 +352,27 @@ p {
     gap: 15px;
   }
 
+  .grafica {
+    max-width: 100%;
+  }
+
+  /* Desactivar animaciones pesadas */
+  .bubble {
+    display: none;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .opciones button,
+  .botones button {
+    width: 100%;
+  }
 }
