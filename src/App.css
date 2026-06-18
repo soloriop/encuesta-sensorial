@@ -6,6 +6,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 body {
@@ -24,6 +25,7 @@ body {
   min-height: 100dvh;
   padding:  clamp(20px, 5vw, 60px);
   overflow-y: auto;
+  color: white;
 
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(25px);
@@ -39,21 +41,25 @@ h1 {
   text-align: center;
   margin-bottom: 25px;
   padding: 20px;
+  color: white;
 }
 
 h2 {
   line-height: 1.6;
   margin: 30px 0;
+  color: white;
 }
 
 h3 {
   margin-top: 40px;
   margin-bottom: 20px;
+  color: white;
 }
 
 p {
   line-height: 1.8;
   margin-bottom: 15px;
+  color: white;
 }
 
 /* BARRA DE PROGRESO */
