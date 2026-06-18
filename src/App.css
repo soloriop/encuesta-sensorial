@@ -356,10 +356,6 @@ p {
     max-width: 100%;
   }
 
-  /* Desactivar animaciones pesadas */
-  .bubble {
-    display: none;
-  }
 
   h1 {
     font-size: 1.8rem;
