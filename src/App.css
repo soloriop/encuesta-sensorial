@@ -338,9 +338,7 @@ p {
 .grafica {
   width: min(100%, 500px);
   height: clamp(250px, 50vw, 450px);
-
   margin: 0 auto;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -353,9 +351,12 @@ p {
   }
 
   .grafica {
-    max-width: 100%;
+        height: 300px;
+        padding-right: 30px;
   }
-
+  .bubble {
+    display: none;
+  }
 
   h1 {
     font-size: 1.8rem;
