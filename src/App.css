@@ -15,16 +15,16 @@ body {
 /* CONTENEDOR PRINCIPAL */
 
 .contenedor {
-  width: 850px;
-  max-width: 100%;
-  margin: 40px auto;
-  padding: 45px;
+  width: 100%;
+  min-height: 100vh;
+  padding:  clamp(20px, 5vw, 60px);
+  align-items: center;
 
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(25px);
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 30px;
+  border: none;
+  border-radius: 0px;
 
   position: relative;
   z-index: 2;
@@ -33,6 +33,7 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 25px;
+  padding: 20cpx;
 }
 
 h2 {
@@ -141,30 +142,6 @@ p {
   text-align: center;
 }
 
-.circuloResultado {
-
-  width: 180px;
-  height: 180px;
-
-  margin: 30px auto;
-
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 3rem;
-  font-weight: bold;
-
-  border: 3px solid #00d4ff;
-
-  box-shadow:
-    0 0 50px rgba(0,212,255,.4);
-
-  background: rgba(255,255,255,.05);
-}
-
 .puntajeCategoria {
   font-size: 1.7rem;
   font-weight: bold;
@@ -240,7 +217,7 @@ p {
 .b6 {
   width: 300px;
   height: 300px;
-  background: #FFFFFF;
+  background: #ED554E;
   animation: bubble6 22 infinite alternate ease-in-out;
 }
 
@@ -357,11 +334,6 @@ p {
 /* RESPONSIVE */
 
 @media (max-width: 100%) {
-
-  .contenedor {
-    position: relative;
-    z-index: 2;
-  }
 
   .botones {
     flex-direction: column;

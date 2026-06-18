@@ -1,6 +1,26 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./App.css";
+//Chart 
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+} 
+from "chart.js";
+import { Radar } from "react-chartjs-2";
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+);
 
 const preguntas = [
   
@@ -55,22 +75,25 @@ export default function App() {
   );
   const [finalizado, setFinalizado] = useState(false);
 
-   const calcularTotal = () => {
-    return respuestas.reduce(
-      (acumulado,valor) => acumulado + (valor || 0),0  
-    );
-  };
+  const calcularTotal = () => {
+  const total = respuestas.reduce((acc, val) => acc + (val || 0), 0);
+  const maximo = preguntas.length * 4;
+  const porcentaje = (total / maximo) * 100;
+  return Math.round(porcentaje) + "%";
+};
+
+
 
    const obtenerResultado = (puntaje) => {
-     if (puntaje <= 28) {
+     if (puntaje <= 25) {
     return "Sensibilidad sensorial baja";
   }
 
-  if (puntaje <= 56) {
+  if (puntaje <= 50) {
     return "Sensibilidad sensorial moderada";
   }
 
-  if (puntaje <= 84) {
+  if (puntaje <= 75) {
     return "Sensibilidad sensorial elevada";
   }
 
@@ -116,21 +139,78 @@ export default function App() {
   const progreso = ((indice + 1) / preguntas.length) * 100;
 
   if (finalizado) {
-    const total = calcularTotal();
-    const resultado = obtenerResultado(total);
-    const categorias = calcularPorCategoria();
 
+const total = calcularTotal();
+const resultado = obtenerResultado(total);
+const categorias = calcularPorCategoria();
+const maximoCategoria = Object.entries (categorias).sort((a, b) => b[1] - a[1])[0];
+   
+    const data = {
+  labels: Object.keys(categorias),
+  datasets: [
+    {
+      label: "Sensibilidad",
+      data: Object.values(categorias),
+      backgroundColor: "rgba(170, 59, 255, 0.2)",
+      borderColor: "#aa3bff",
+      borderWidth: 3,
+      pointBackgroundColor: "#aa3bff",
+      pointBorderColor: "#fff",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "#aa3bff"
+    }
+  ]
+};
+
+const options = {
+  responsive: true,
+  scales: {
+    r: {
+      beginAtZero: true,
+      ticks: {
+        display: false
+      },
+      grid: {
+        color: "rgba(255,255,255,0.15)"
+      },
+      angleLines: {
+        color: "rgba(255,255,255,0.15)"
+      },
+      pointLabels: {
+        color: "#ffffff",
+        font: {
+          size: 14
+        }
+      }
+    }
+  },
+  plugins: {
+    legend: {
+      labels: {
+        color: "#ffffff"
+      }
+    }
+  }
+};
     return (
       <div className="contenedor">
-        <h1>Muchas gracias por realizar la encuenta
+        <h1>Encuesta Completada 
         </h1>
         <h2>Recuerda que los resultados no definen ciertas areas pscologicas, para un mejor analisis acude a un experto </h2>
-        <h1>Encuesta completada </h1>
+        <h1>Resultados </h1>
         <h2>Puntaje total: {total}</h2>
          <h2>{resultado}</h2>
 
       <h3>Resultados por categoría</h3>
 
+      <div style={{ width: "500px", margin: "30px auto" }}>
+  <Radar data={data} options={options} />
+</div>
+<h2>
+  La categoría con mayor sensibilidad fue <span className="destacado">
+    {maximoCategoria[0]}
+  </span>
+</h2>
       {Object.entries(categorias).map(([nombre, valor]) => (
         <p key={nombre}>
           <strong>{nombre}:</strong> {valor}
@@ -139,6 +219,7 @@ export default function App() {
       </div>
     );
   }
+
 
   return (
     <>
@@ -228,5 +309,3 @@ export default function App() {
     </>
   );
 }
-
-//
