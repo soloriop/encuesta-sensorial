@@ -363,10 +363,6 @@ p {
   .grafica {
         height: 300px;
         padding-right: 30px;
-  }
-  .bubble {
-    display: none;
-  }
 
   h1 {
     font-size: 1.8rem;
