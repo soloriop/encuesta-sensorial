@@ -306,4 +306,18 @@ p {
   .botones button {
     width: 100%;
   }
+  @media (max-width: 768px) {
+  .bubble {
+    filter: blur(30px);
+    opacity: 0.6;
+  }
+  .b1, .b2, .b3 {
+    width: 220px;
+    height: 220px;
+  }
+  .contenedor {
+    backdrop-filter: blur(10px);
+  }
+}
+
 }}
