@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import "./App.css";
