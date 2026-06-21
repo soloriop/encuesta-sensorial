@@ -195,10 +195,19 @@ p {
 }
 
 /* GRAFICA */
-grafica {
+.contenedor.resultados {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* espacio entre bloques de texto */
+}
+
+/* Gráfica al final */
+.grafica {
   width: min(100%, 500px);
-  height: clamp(250px, 50vw, 450px);
-  margin: 0 auto;
+  height: 400px; /* altura fija para que el radar no se expanda raro */
+  margin-top: auto; /* empuja la gráfica al final del contenedor */
+  margin-bottom: 30px; /* espacio inferior */
+  align-self: center; /* centra horizontalmente */
   display: flex;
   justify-content: center;
   align-items: center;
