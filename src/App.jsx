@@ -145,63 +145,110 @@ const resultado = obtenerResultado(total);
 const categorias = calcularPorCategoria();
 const maximoCategoria = Object.entries (categorias).sort((a, b) => b[1] - a[1])[0];
    
-    const data = {
+const data = {
   labels: Object.keys(categorias),
   datasets: [
     {
-      label: "Sensibilidad",
-      data: Object.values(categorias),
-      backgroundColor: "rgba(170, 59, 255, 0.2)",
-      borderColor: "#aa3bff",
-      borderWidth: 3,
-      pointBackgroundColor: "#aa3bff",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "#aa3bff"
+      label: "Visual",
+      data: [categorias["Visual"]],
+      backgroundColor: "rgba(0, 174, 255, 0.2)",
+      borderColor: "#00aeff",
+      borderWidth: 2,
+      pointBackgroundColor: "#00aeff"
+    },
+    {
+      label: "Auditivo",
+      data: [categorias["Auditivo"]],
+      backgroundColor: "rgba(255, 99, 132, 0.2)",
+      borderColor: "#ff6384",
+      borderWidth: 2,
+      pointBackgroundColor: "#ff6384"
+    },
+    {
+      label: "Táctil",
+      data: [categorias["Táctil"]],
+      backgroundColor: "rgba(75, 192, 192, 0.2)",
+      borderColor: "#4bc0c0",
+      borderWidth: 2,
+      pointBackgroundColor: "#4bc0c0"
+    },
+    {
+      label: "Olfativo",
+      data: [categorias["Olfativo"]],
+      backgroundColor: "rgba(255, 206, 86, 0.2)",
+      borderColor: "#ffce56",
+      borderWidth: 2,
+      pointBackgroundColor: "#ffce56"
+    },
+    {
+      label: "Gusto",
+      data: [categorias["Gusto"]],
+      backgroundColor: "rgba(153, 102, 255, 0.2)",
+      borderColor: "#9966ff",
+      borderWidth: 2,
+      pointBackgroundColor: "#9966ff"
+    },
+    {
+      label: "Propiocepcion",
+      data: [categorias["Propiocepcion"]],
+      backgroundColor: "rgba(255, 159, 64, 0.2)",
+      borderColor: "#ff9f40",
+      borderWidth: 2,
+      pointBackgroundColor: "#ff9f40"
+    },
+    {
+      label: "Vestibular",
+      data: [categorias["Vestibular"]],
+      backgroundColor: "rgba(0, 255, 153, 0.2)",
+      borderColor: "#00ff99",
+      borderWidth: 2,
+      pointBackgroundColor: "#00ff99"
     }
   ]
 };
 const options = {
   responsive: true,
   maintainAspectRatio: false,
-
   scales: {
     r: {
       beginAtZero: true,
-
+      suggestedMax: 16,
       ticks: {
-        display: false
+        stepSize: 4,
+        color: "#aaa"
       },
-
       grid: {
         color: "rgba(255,255,255,.15)"
       },
-
       angleLines: {
         color: "rgba(255,255,255,.15)"
       },
-
       pointLabels: {
+        color: "#fff",
+        font: {
+          size: 14,
+          weight: "bold"
+        }
+      }
+    }
+  },
+  plugins: {
+    legend: {
+      display: true,
+      labels: {
         color: "#fff",
         font: {
           size: 12
         }
       }
-    }
-  },
-
-  plugins: {
-    position: "top",
-    legend: {
-      display: false,
-      labels: {
-        color: "#fff",
-        font: {
-          size: 12,
-        }
+    },
+    tooltip: {
+      callbacks: {
+        label: (context) => `${context.dataset.label}: ${context.raw} puntos`
       }
     }
   }
+};
 };
     return (
       <div className="contenedor">
@@ -317,4 +364,3 @@ const options = {
       </div>
     </>
   );
-}

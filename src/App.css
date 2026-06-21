@@ -195,7 +195,7 @@ p {
 }
 
 /* GRAFICA */
-.grafica {
+grafica {
   width: min(100%, 500px);
   height: clamp(250px, 50vw, 450px);
   margin: 0 auto;
@@ -204,16 +204,11 @@ p {
   align-items: center;
 }
 
-/* 📱 OPTIMIZACIÓN MÓVIL */
+
 @media (max-width: 768px) {
   .botones {
     flex-direction: column;
     gap: 15px;
-  }
-
-  .grafica {
-    height: 300px;
-    padding-right: 30px;
   }
 
   h1 {
