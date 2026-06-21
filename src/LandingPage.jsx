@@ -1,35 +1,26 @@
 import { Link } from "react-router-dom";
-import Dither from "./Dither";
+import Iridescence from "./Iridescence";
 
 function LandingPage() {
   return (
-    <div style={{ width: "100%", height: "100vh", position: "relative" }}>
-      <Dither
-        waveColor={[0.23, 0.51, 0.96]}
-        disableAnimation={false}
-        enableMouseInteraction
-        mouseRadius={0.3}
-        colorNum={4}
-        waveAmplitude={0.3}
-        waveFrequency={3}
-        waveSpeed={0.05}
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* Fondo animado */}
+      <Iridescence
+        color={[0.5, 0.6, 0.8]}
+        mouseReact
+        amplitude={0.1}
+        speed={1}
       />
 
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        <h1>Bienvenido 🚀</h1>
-        <p>Fondo Dither animado</p>
-
-        <Link to="/encuesta" style={{ color: "yellow" }}>
-          Ir a encuesta
+      {/* Contenido centrado */}
+      <div className="absolute text-center text-white">
+        <h1 className="text-4xl font-bold">Bienvenido 🚀</h1>
+        <p className="mt-2">Explora los sentidos con un fondo animado</p>
+        <Link
+          to="/sentidos"
+          className="mt-4 inline-block bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded"
+        >
+          Ir a los sentidos
         </Link>
       </div>
     </div>
