@@ -29,7 +29,6 @@ export default function LandingPage() {
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "rgba(0,0,0,0.5)",
         zIndex: 1
       }} />
 
@@ -42,7 +41,6 @@ export default function LandingPage() {
       }}>
         <h1 style={{ fontSize: "2rem" }}> 
           Test Sensorial
-          <p>Una bola y media de mamadas para una clase pitera</p>
         </h1>
 
         <p>Explora los sentidos</p>
@@ -58,10 +56,10 @@ export default function LandingPage() {
             borderRadius: "8px"
           }}
         >
-          Haz el test maldita perra 
+          Haz el test
         </Link>
       </div>
 
     </div>
   );
-}2
+}

@@ -213,26 +213,6 @@ p {
   animation: bubble3 20s infinite alternate ease-in-out;
 }
 
-.b4 {
-  width: 400px;
-  height: 400px;
-  background: #ff6600;
-  animation: bubble4 15s infinite alternate ease-in-out;
-}
-.b5 {
-  width: 300px;
-  height: 300px;
-  background: #CF27F5;
-  animation: bubble5 19s infinite alternate ease-in-out;
-}
-.b6 {
-  width: 300px;
-  height: 300px;
-  background: #ED554E;
-  animation: bubble6 22s infinite alternate ease-in-out;
-}
-
-
 @keyframes bubble1 {
 
   0% {
@@ -287,59 +267,7 @@ p {
   }
 }
 
-@keyframes bubble4 {
 
-  0% {
-    bottom: 0%;
-    right: 0%;
-  }
-
-  50% {
-    bottom: 60%;
-    right: 45%;
-  }
-
-  100% {
-    bottom: 20%;
-    right: 70%;
-  }
-}
-
-@keyframes bubble5 {
-  
-  0% {
-    bottom: 0%;
-    right: 0%;
-  }
-
-  50% {
-    bottom: 64%;
-    right: 55%;
-  }
-
-  100% {
-    bottom: 50%;
-    right: 70%;
-  }
-}
-
-@keyframes bubble6 {
-  
-  0% {
-    bottom: 0%;
-    right: 0%;
-  }
-
-  50% {
-    bottom: 80%;
-    right: 60%;
-  }
-
-  100% {
-    bottom: 20%;
-    right: 70%;
-  }
-}
   
   .botones {
     flex-direction: column;
