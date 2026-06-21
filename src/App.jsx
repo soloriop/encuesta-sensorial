@@ -138,147 +138,146 @@ export default function App() {
 
   const progreso = ((indice + 1) / preguntas.length) * 100;
 
-  if (finalizado) {
+ if (finalizado) {
+  const total = calcularTotal();
+  const resultado = obtenerResultado(total);
+  const categorias = calcularPorCategoria();
+  const maximoCategoria = Object.entries(categorias).sort((a, b) => b[1] - a[1])[0];
 
-const total = calcularTotal();
-const resultado = obtenerResultado(total);
-const categorias = calcularPorCategoria();
-const maximoCategoria = Object.entries (categorias).sort((a, b) => b[1] - a[1])[0];
-   
-const data = {
-  labels: Object.keys(categorias),
-  datasets: [
-    {
-      label: "Visual",
-      data: [categorias["Visual"]],
-      backgroundColor: "rgba(0, 174, 255, 0.2)",
-      borderColor: "#00aeff",
-      borderWidth: 2,
-      pointBackgroundColor: "#00aeff"
-    },
-    {
-      label: "Auditivo",
-      data: [categorias["Auditivo"]],
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "#ff6384",
-      borderWidth: 2,
-      pointBackgroundColor: "#ff6384"
-    },
-    {
-      label: "Táctil",
-      data: [categorias["Táctil"]],
-      backgroundColor: "rgba(75, 192, 192, 0.2)",
-      borderColor: "#4bc0c0",
-      borderWidth: 2,
-      pointBackgroundColor: "#4bc0c0"
-    },
-    {
-      label: "Olfativo",
-      data: [categorias["Olfativo"]],
-      backgroundColor: "rgba(255, 206, 86, 0.2)",
-      borderColor: "#ffce56",
-      borderWidth: 2,
-      pointBackgroundColor: "#ffce56"
-    },
-    {
-      label: "Gusto",
-      data: [categorias["Gusto"]],
-      backgroundColor: "rgba(153, 102, 255, 0.2)",
-      borderColor: "#9966ff",
-      borderWidth: 2,
-      pointBackgroundColor: "#9966ff"
-    },
-    {
-      label: "Propiocepcion",
-      data: [categorias["Propiocepcion"]],
-      backgroundColor: "rgba(255, 159, 64, 0.2)",
-      borderColor: "#ff9f40",
-      borderWidth: 2,
-      pointBackgroundColor: "#ff9f40"
-    },
-    {
-      label: "Vestibular",
-      data: [categorias["Vestibular"]],
-      backgroundColor: "rgba(0, 255, 153, 0.2)",
-      borderColor: "#00ff99",
-      borderWidth: 2,
-      pointBackgroundColor: "#00ff99"
-    }
-  ]
-};
-const options = {
-  responsive: true,
-  maintainAspectRatio: false,
-  scales: {
-    r: {
-      beginAtZero: true,
-      suggestedMax: 16,
-      ticks: {
-        stepSize: 4,
-        color: "#aaa"
+  const data = {
+    labels: Object.keys(categorias),
+    datasets: [
+      {
+        label: "Visual",
+        data: [categorias["Visual"]],
+        backgroundColor: "rgba(0, 174, 255, 0.2)",
+        borderColor: "#00aeff",
+        borderWidth: 2,
+        pointBackgroundColor: "#00aeff"
       },
-      grid: {
-        color: "rgba(255,255,255,.15)"
+      {
+        label: "Auditivo",
+        data: [categorias["Auditivo"]],
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "#ff6384",
+        borderWidth: 2,
+        pointBackgroundColor: "#ff6384"
       },
-      angleLines: {
-        color: "rgba(255,255,255,.15)"
+      {
+        label: "Táctil",
+        data: [categorias["Táctil"]],
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "#4bc0c0",
+        borderWidth: 2,
+        pointBackgroundColor: "#4bc0c0"
       },
-      pointLabels: {
-        color: "#fff",
-        font: {
-          size: 14,
-          weight: "bold"
-        }
+      {
+        label: "Olfativo",
+        data: [categorias["Olfativo"]],
+        backgroundColor: "rgba(255, 206, 86, 0.2)",
+        borderColor: "#ffce56",
+        borderWidth: 2,
+        pointBackgroundColor: "#ffce56"
+      },
+      {
+        label: "Gusto",
+        data: [categorias["Gusto"]],
+        backgroundColor: "rgba(153, 102, 255, 0.2)",
+        borderColor: "#9966ff",
+        borderWidth: 2,
+        pointBackgroundColor: "#9966ff"
+      },
+      {
+        label: "Propiocepcion",
+        data: [categorias["Propiocepcion"]],
+        backgroundColor: "rgba(255, 159, 64, 0.2)",
+        borderColor: "#ff9f40",
+        borderWidth: 2,
+        pointBackgroundColor: "#ff9f40"
+      },
+      {
+        label: "Vestibular",
+        data: [categorias["Vestibular"]],
+        backgroundColor: "rgba(0, 255, 153, 0.2)",
+        borderColor: "#00ff99",
+        borderWidth: 2,
+        pointBackgroundColor: "#00ff99"
       }
-    }
-  },
-  plugins: {
-    legend: {
-      display: true,
-      labels: {
-        color: "#fff",
-        font: {
-          size: 12
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      r: {
+        beginAtZero: true,
+        suggestedMax: 16,
+        ticks: {
+          stepSize: 4,
+          color: "#aaa"
+        },
+        grid: {
+          color: "rgba(255,255,255,.15)"
+        },
+        angleLines: {
+          color: "rgba(255,255,255,.15)"
+        },
+        pointLabels: {
+          color: "#fff",
+          font: {
+            size: 14,
+            weight: "bold"
+          }
         }
       }
     },
-    tooltip: {
-      callbacks: {
-        label: (context) => `${context.dataset.label}: ${context.raw} puntos`
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: "#fff",
+          font: {
+            size: 12
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => `${context.dataset.label}: ${context.raw} puntos`
+        }
       }
     }
-  }
-};
-};
-    return (
-      <div className="contenedor">
-        <h1>Encuesta Completada 
-        </h1>
-        <h2>Recuerda que los resultados no definen ciertas areas pscologicas, para un mejor analisis acude a un experto </h2>
-        <h1>Resultados </h1>
-        <h2>Puntaje total: {total}</h2>
-         <h2>{resultado}</h2>
+  };
+
+  return (
+    <div className="contenedor resultados">
+      <h1>Encuesta Completada</h1>
+      <h2>Recuerda que los resultados no definen ciertas áreas psicológicas...</h2>
+      <h1>Resultados</h1>
+      <h2>Puntaje total: {total}</h2>
+      <h2>{resultado}</h2>
 
       <h3>Resultados por categoría</h3>
-
-      <div className="grafica">
-  <Radar data={data} options={options} />
-</div>
-
-<h2>
-  La categoría con mayor sensibilidad fue <span className="destacado">
-    {maximoCategoria[0]}
-  </span>
-</h2>
       {Object.entries(categorias).map(([nombre, valor]) => (
         <p key={nombre}>
           <strong>{nombre}:</strong> {valor}
         </p>
       ))}
-      </div>
-    );
-  }
 
+      {/* Radar al final */}
+      <div className="grafica">
+        <Radar data={data} options={options} />
+      </div>
+
+      <h2>
+        La categoría con mayor sensibilidad fue <span className="destacado">
+          {maximoCategoria[0]}
+        </span>
+      </h2>
+    </div>
+  );
+}
 
   return (
     <>
@@ -364,3 +363,4 @@ const options = {
       </div>
     </>
   );
+}
