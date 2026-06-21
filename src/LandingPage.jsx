@@ -1,28 +1,39 @@
 import { Link } from "react-router-dom";
-import "./landing.css";
+import Dither from "./Dither";
 
-export default function LandingPage() {
+function LandingPage() {
   return (
-    <div className="landing">
+    <div style={{ width: "100%", height: "100vh", position: "relative" }}>
+      <Dither
+        waveColor={[0.23, 0.51, 0.96]}
+        disableAnimation={false}
+        enableMouseInteraction
+        mouseRadius={0.3}
+        colorNum={4}
+        waveAmplitude={0.3}
+        waveFrequency={3}
+        waveSpeed={0.05}
+      />
 
-      <h1>Los 7 Sentidos del Ser Humano</h1>
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          color: "white",
+          textAlign: "center",
+        }}
+      >
+        <h1>Bienvenido 🚀</h1>
+        <p>Fondo Dither animado</p>
 
-      <p>
-        Descubre cómo nuestro cerebro interpreta el mundo a través de
-        la vista, el oído, el gusto, el olfato, el tacto, el equilibrio
-        y la propiocepción.
-      </p>
-
-      {/* Aquí pondrás todas las tarjetas */}
-
-      <div className="contenedor-boton">
-        <Link to="/test">
-          <button className="btn-test">
-            Realizar Test Sensorial
-          </button>
+        <Link to="/encuesta" style={{ color: "yellow" }}>
+          Ir a encuesta
         </Link>
       </div>
-
     </div>
   );
 }
+
+export default LandingPage;
