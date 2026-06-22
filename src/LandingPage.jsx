@@ -1,15 +1,42 @@
 import { Link } from "react-router-dom";
 import Iridescence from "./Iridescence";
+import ShinyText from './ShinyText';
 
 export default function LandingPage() {
   return (
+    
     <div style={{
       position: "relative",
       width: "100vw",
       height: "100vh",
-      overflow: "hidden",
-      background: "black"
+      overflow: "hidden"
     }}>
+<div 
+ style={{
+  lineHeight: 1.2,
+    position: "relative",
+    zIndex: 1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: "48px",
+    padding: "60px"
+  }}>
+      <ShinyText
+  text=" PERCEPCIÓN VISUAL PARA ESTUDIANTES NEURODIVERGENTES "
+  speed={3}
+  delay={0}
+  color="#c0ccce"
+  shineColor="#EC4899"
+  spread={120}
+  direction="left"
+  yoyo
+  pauseOnHover={false}
+  disabled={false}
+/>
+</div>
+
 
       {/* BACKGROUND FORZADO */}
       <div style={{
@@ -32,34 +59,24 @@ export default function LandingPage() {
         zIndex: 1
       }} />
 
-      {/* TEXTO */}
-      <div style={{
-        position: "relative",
-        zIndex: 2,
-        color: "white",
-        textAlign: "center"
-      }}>
-        <h1 style={{ fontSize: "2rem" }}> 
-          Test Sensorial
-        </h1>
-
-        <p>Explora los sentidos</p>
-
+        <p>Desarrollo de módulos de visión para el monitoreo sensorial en estudiantes neurodivergentes</p>
         <Link
           to="/test"
           style={{
+            position: "relative",
             display: "inline-block",
             marginTop: "20px",
             padding: "10px 20px",
             background: "purple",
             color: "white",
-            borderRadius: "8px"
+            zIndex: 1,
+            textDecoration: "none",
+            borderRadius: "5px",
+            fontSize: "18px"
           }}
         >
-          Haz el test
+         Realizar Test
         </Link>
       </div>
-
-    </div>
   );
 }

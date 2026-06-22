@@ -208,7 +208,7 @@ export default function App() {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     scales: {
       r: {
         beginAtZero: true,
@@ -252,29 +252,11 @@ export default function App() {
 
   return (
     <div className="contenedor resultados">
-      <h1>Encuesta Completada</h1>
-      <h2>Recuerda que los resultados no definen ciertas áreas psicológicas...</h2>
-      <h1>Resultados</h1>
-      <h2>Puntaje total: {total}</h2>
-      <h2>{resultado}</h2>
-
-      <h3>Resultados por categoría</h3>
-      {Object.entries(categorias).map(([nombre, valor]) => (
-        <p key={nombre}>
-          <strong>{nombre}:</strong> {valor}
-        </p>
-      ))}
 
       {/* Radar al final */}
       <div className="grafica">
         <Radar data={data} options={options} />
       </div>
-
-      <h2>
-        La categoría con mayor sensibilidad fue <span className="destacado">
-          {maximoCategoria[0]}
-        </span>
-      </h2>
     </div>
   );
 }
@@ -359,6 +341,11 @@ export default function App() {
               : "Siguiente →"}
           </button>
         </div>
+
+<button onClick={() => setFinalizado(true)}>
+   Debug Finalizar
+
+</button>
 
       </div>
     </>

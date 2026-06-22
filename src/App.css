@@ -194,26 +194,6 @@ p {
   100% { bottom: 70%; left: 25%; }
 }
 
-/* GRAFICA */
-.contenedor.resultados {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* espacio entre bloques de texto */
-}
-
-/* Gráfica al final */
-.grafica {
-  width: min(100%, 500px);
-  height: 400px; /* altura fija para que el radar no se expanda raro */
-  margin-top: auto; /* empuja la gráfica al final del contenedor */
-  margin-bottom: 30px; /* espacio inferior */
-  align-self: center; /* centra horizontalmente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 @media (max-width: 768px) {
   .botones {
     flex-direction: column;
